@@ -45,13 +45,11 @@ def play(my_songs)
   #get the file path of the song by looking it up in the my_songs hash
   puts "Please enter a song name or number:"
   song_name = gets.chomp
-  my_songs.each do |song, file|
-    if song_name == song
-      system open  file
+  if my_songs.keys.include?(song_name) == true
+      system "open #{my_songs[song_name]}"
     else 
       puts "Invalid input, please try again"
     end
-  end 
 end
 
 def exit_jukebox
